@@ -28,6 +28,14 @@ export default async function DepartmentPage({ params }: { params: Promise<{ slu
       <aside className="panel"><p className="eyebrow">Project work</p><h2>Current library records</h2><p className="muted small">This list is based on currently documented repository records. A status does not imply a publication or validated result.</p>
         {departmentProjects.length ? <div className="work-list">{departmentProjects.map((project) => <div className="work-row" key={project.slug}><span className={"badge badge-" + project.status.toLowerCase().replaceAll(" ", "-")}>{project.status}</span>{project.isDemo && <span className="badge badge-demo" style={{ marginLeft: 6 }}>Demo</span>}<h3 style={{ marginTop: 12 }}><Link href={"/projects/" + project.slug}>{project.title}</Link></h3><p>{project.summary}</p></div>)}</div> : <div className="empty-state"><h3>No project records yet</h3><p>As work is documented, add methodology, contributor roles where authorized, sources, and results.</p></div>}
         <hr className="rule" /><Link className="button button-primary" href={"/projects?department=" + encodeURIComponent(department.name)}>Explore related projects →</Link>
+        <hr className="rule" />
+        <h3>Team &amp; contributors</h3>
+        <p className="muted small">A public contributor list is not configured yet. Names and roles will appear only after contributors authorize public display.</p>
+        <hr className="rule" />
+        <h3>News &amp; milestones</h3>
+        <p className="muted small">No dated department announcements have been published. Future updates should link to their project record and supporting evidence.</p>
+        <hr className="rule" />
+        <Link className="button button-primary" href="/join">Recruitment &amp; contribution info →</Link>
       </aside>
     </div></section>
   </>;
