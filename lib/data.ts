@@ -225,13 +225,4 @@ export const projects: Project[] = [
 
 export const projectStatuses: ProjectStatus[] = ["Proposed", "In Progress", "Testing", "Published", "Archived"];
 
-export const researchSources = [
-  { name: "NASA Open Science", kind: "Space and Earth science", url: "https://science.nasa.gov/open-science/", note: "Start from the official open-science resource and follow the data product's own documentation." },
-  { name: "NASA Open APIs", kind: "Space and planetary data", url: "https://api.nasa.gov/", note: "API availability and key requirements vary by endpoint. No live NASA API integration is enabled in this initial build." },
-  { name: "NASA Exoplanet Archive", kind: "Astronomy datasets", url: "https://exoplanetarchive.ipac.caltech.edu/", note: "Check table definitions, provenance, licensing, and query limits before using records." },
-  { name: "SIMBAD Astronomical Database", kind: "Astronomical identifiers", url: "https://simbad.u-strasbg.fr/simbad/", note: "Use object identifiers and source notes carefully; do not infer missing measurements." },
-  { name: "NOAA Climate Data Online", kind: "Weather and climate", url: "https://www.ncei.noaa.gov/cdo-web/", note: "Review dataset coverage, units, and access terms before analysis." },
-  { name: "OpenStreetMap", kind: "Mapping reference", url: "https://www.openstreetmap.org/", note: "Follow attribution and usage policies before embedding maps or tiles in a deployed application." },
-];
-
 export const publicAnnouncements: { title: string; date: string; summary: string; href?: string }[] = [];
