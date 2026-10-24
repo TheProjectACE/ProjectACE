@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { PageIntro } from "@/components/PageIntro";
-import { researchSources } from "@/lib/data";
+import { getResearchDataSources } from "@/lib/data-sources";
 export const metadata: Metadata = { title: "Research library", description: "A source-first guide to research resources and reproducible science." };
 export default function ResearchPage() {
+  const researchSources = getResearchDataSources();
   return <><PageIntro eyebrow="Methods · References · Reproducibility" title="Research starts with sources." description="Find official starting points for scientific datasets and follow each dataset's own documentation before drawing conclusions. This is a resource directory, not a list of ProjectACE publications." /><section className="page-body"><div className="wrap">
     <div className="notice" style={{ marginBottom: 24 }}>There are no peer-reviewed publications or verified research reports published in this initial library. Links below lead to external resources, not ProjectACE results.</div>
     <div className="work-list">{researchSources.map((source) => <article className="work-row" key={source.url}><span className="kicker">{source.kind}</span><h3 style={{ marginTop: 7 }}>{source.name}</h3><p>{source.note}</p><p style={{ marginTop: 10 }}><a className="external-link" href={source.url} target="_blank" rel="noreferrer">Open official resource ↗</a></p></article>)}</div>
