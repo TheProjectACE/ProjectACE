@@ -110,6 +110,11 @@ export type Project = {
   materials: string[];
   limitations: string[];
   sources: { label: string; url: string }[];
+  datasets?: { label: string; url: string }[];
+  findings?: string[];
+  contributors?: { name: string; role: string; publicDisplayApproved: boolean }[];
+  reportUrl?: string;
+  repositoryUrl?: string;
   updated: string;
 };
 
