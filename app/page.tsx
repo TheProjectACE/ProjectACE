@@ -60,6 +60,22 @@ export default function HomePage() {
           <div style={{ marginTop: 24 }}><Link className="button button-primary" href="/projects">Browse project library <Arrow /></Link></div>
         </div>
       </section>
+      <section className="section" style={{ borderTop: "1px solid var(--line)", background: "#091625" }}>
+        <div className="wrap grid-2">
+          <article className="panel">
+            <p className="eyebrow">News &amp; milestones</p>
+            <h2>Progress, documented.</h2>
+            <p className="muted">Public updates will be dated and linked to the work they describe. No announcement has been published in this initial library yet.</p>
+            <Link className="card-link" href="/news">View updates <span>→</span></Link>
+          </article>
+          <article className="panel">
+            <p className="eyebrow">Research library</p>
+            <h2>Evidence before claims.</h2>
+            <p className="muted">Find official science data resources and guidance for recording sources, units, and limitations. ProjectACE publications will appear here only when verified records are ready.</p>
+            <Link className="card-link" href="/research">Explore research resources <span>→</span></Link>
+          </article>
+        </div>
+      </section>
       <section className="section">
         <div className="wrap grid-3">
           <article className="info-card panel"><span className="kicker">01 / Explore</span><h3>ACE Lab</h3><p>Open a CSV dataset in your browser, compare numeric columns, chart it, and export the filtered data.</p><Link className="card-link" href="/lab">Open scientific tools <span>→</span></Link></article>
