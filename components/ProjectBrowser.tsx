@@ -1,22 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { projects, departments, projectStatuses } from "@/lib/data";
 import { ProjectCard } from "@/components/ProjectCard";
 
-export function ProjectBrowser() {
+export function ProjectBrowser({ initialDepartment }: { initialDepartment?: string }) {
   const [query, setQuery] = useState("");
-  const [department, setDepartment] = useState("All departments");
+  const [department, setDepartment] = useState(() => initialDepartment && departments.some((item) => item.name === initialDepartment) ? initialDepartment : "All departments");
   const [status, setStatus] = useState("All statuses");
   const [topic, setTopic] = useState("All topics");
   const topics = useMemo(() => [...new Set(projects.map((project) => project.topic))].sort(), []);
 
-  useEffect(() => {
-    const requestedDepartment = new URLSearchParams(window.location.search).get("department");
-    if (requestedDepartment && departments.some((item) => item.name === requestedDepartment)) {
-      setDepartment(requestedDepartment);
-    }
-  }, []);
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
