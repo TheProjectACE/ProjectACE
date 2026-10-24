@@ -17,11 +17,15 @@ export function CsvExplorer() {
   const [yColumn, setYColumn] = useState("");
   const [filter, setFilter] = useState("");
 
-  const numericColumns = useMemo(() => dataset?.headers.filter((header) =>
-    (dataset.rows.some((row) => row[header].trim() !== "") &&
-      dataset.rows.filter((row) => row[header].trim() !== "").some((row) => row[header].trim() !== "")) &&
-    dataset.rows.some((row) => row[header].trim() !== "" && Number.isFinite(Number(row[header])))
-  ) ?? [], [dataset]);
+  const numericColumns = useMemo(() => {
+    if (!dataset) return [];
+    return dataset.headers.filter((header) =>
+      dataset.rows.some((row) => {
+        const value = row[header]?.trim() ?? "";
+        return value !== "" && Number.isFinite(Number(value));
+      })
+    );
+  }, [dataset]);
 
   const visibleRows = useMemo(() => {
     if (!dataset) return [];
