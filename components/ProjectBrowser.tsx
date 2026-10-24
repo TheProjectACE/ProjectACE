@@ -8,6 +8,8 @@ export function ProjectBrowser() {
   const [query, setQuery] = useState("");
   const [department, setDepartment] = useState("All departments");
   const [status, setStatus] = useState("All statuses");
+  const [topic, setTopic] = useState("All topics");
+  const topics = useMemo(() => [...new Set(projects.map((project) => project.topic))].sort(), []);
 
   useEffect(() => {
     const requestedDepartment = new URLSearchParams(window.location.search).get("department");
@@ -25,9 +27,10 @@ export function ProjectBrowser() {
       ].join(" ").toLowerCase().includes(normalized);
       return matchesQuery
         && (department === "All departments" || project.departmentName === department)
-        && (status === "All statuses" || project.status === status);
+        && (status === "All statuses" || project.status === status)
+        && (topic === "All topics" || project.topic === topic);
     });
-  }, [query, department, status]);
+  }, [query, department, status, topic]);
 
   return (
     <>
@@ -50,12 +53,19 @@ export function ProjectBrowser() {
             {projectStatuses.map((item) => <option key={item}>{item}</option>)}
           </select>
         </div>
+        <div className="field">
+          <label htmlFor="topic-filter">Topic</label>
+          <select id="topic-filter" value={topic} onChange={(event) => setTopic(event.target.value)}>
+            <option>All topics</option>
+            {topics.map((item) => <option key={item}>{item}</option>)}
+          </select>
+        </div>
       </div>
       <p className="muted small" aria-live="polite">Showing {filtered.length} of {projects.length} project records. Some are explicitly marked as demonstrations.</p>
       {filtered.length ? (
         <div className="project-grid">{filtered.map((project) => <ProjectCard key={project.slug} project={project} />)}</div>
       ) : (
-        <div className="empty-state"><h3>No matching projects</h3><p>Try another keyword, department, or status.</p><button className="button button-secondary button-small" type="button" onClick={() => { setQuery(""); setDepartment("All departments"); setStatus("All statuses"); }}>Reset filters</button></div>
+        <div className="empty-state"><h3>No matching projects</h3><p>Try another keyword, department, or status.</p><button className="button button-secondary button-small" type="button" onClick={() => { setQuery(""); setDepartment("All departments"); setStatus("All statuses"); setTopic("All topics"); }}>Reset filters</button></div>
       )}
     </>
   );
