@@ -1,37 +1,29 @@
 import Link from "next/link";
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 import type { Department } from "@/lib/data";
 
-function DepartmentMark({ slug }: { slug: string }) {
-  const common = { fill: "none", stroke: "currentColor", strokeWidth: 1.7, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
-  let art: ReactNode;
-  switch (slug) {
-    case "aeroace":
-      art = <><path {...common} d="M4 13.5 20 4l-5.4 16-3.1-6.6L4 13.5Z" /><path {...common} d="m11.5 13.4 4.2-4.1" /></>;
-      break;
-    case "aquaace":
-      art = <><path {...common} d="M12 3.5C9.4 7.2 6 10.4 6 14a6 6 0 0 0 12 0c0-3.6-3.4-6.8-6-10.5Z" /><path {...common} d="M8.5 15.5c1.2 1.3 2.4 1.3 3.5 0s2.3-1.3 3.5 0" /></>;
-      break;
-    case "landace":
-      art = <><path {...common} d="M19.5 4.5C11 4.5 5 7.8 5 14a5.5 5.5 0 0 0 5.5 5.5c6.2 0 9-6 9-15Z" /><path {...common} d="M4 20 14.5 9.5M9 15l-.5-4M14 10l4 .5" /></>;
-      break;
-    case "roboace":
-      art = <><rect {...common} x="5" y="7" width="14" height="12" rx="3" /><path {...common} d="M12 3v4M9 12h.1M15 12h.1M9 16h6M2.5 11v4M21.5 11v4" /><circle cx="9" cy="12" r="1" fill="currentColor" /><circle cx="15" cy="12" r="1" fill="currentColor" /></>;
-      break;
-    case "astroace":
-      art = <><circle {...common} cx="12" cy="12" r="3.2" /><ellipse {...common} cx="12" cy="12" rx="9" ry="4.5" transform="rotate(-28 12 12)" /><circle cx="18.8" cy="7.2" r="1.4" fill="currentColor" /></>;
-      break;
-    default:
-      art = <><path {...common} d="m5 18 2.1-5.5L17 3l4 4-9.5 9.9L5 18Z" /><path {...common} d="m14.5 5.5 4 4M4 4v4M2 6h4M18 16v5M15.5 18.5h5" /></>;
-  }
-  return <svg className={"department-mark department-mark-" + slug} viewBox="0 0 24 24" aria-hidden="true">{art}</svg>;
-}
+const departmentLogos: Record<string, string> = {
+  aeroace: "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/862131244_122122187457411389_7278719327535327925_n.jpg?stp=dst-jpg_tt6&cstp=mx230x230&ctp=s230x230&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=70a8KGaty4kQ7kNvwFDrHvO&_nc_oc=AdqZ7hwSbdVNuvrTMkCaXVeszzDhvwRL3T42fBFcJp2E_NxTftCM44VRTDmr3M2rFCs&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=bvVwEQreOKa0FWwXdBkXNQ&_nc_ss=7b2a8&oh=00_AQPFlGlFu2crX15RS2949LO88rH-nwKmdjbNXmPyXFJyag&oe=6AE5A64A",
+  aquaace: "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/862323086_122100620229522772_6957294596682646282_n.jpg?stp=dst-jpg_tt6&cstp=mx392x396&ctp=s392x396&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=tAhHMITL-M0Q7kNvwFJy_wT&_nc_oc=Adq0-dUnnNb6z0P9z8GRUMhHiF3r7aEuJ-jrRandHGxYeM_zyQYj-7JcQXefKAE2Whs&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=AowUVpW4hV9C8J8xD50Qew&_nc_ss=7b2a8&oh=00_AQP3S7GMBa-yoVezeftrkPnbaSJBn7O-PrzuiCECBC_Aew&oe=6AE58DCE",
+  landace: "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/861298393_122096282061530919_1310256267179166460_n.jpg?stp=dst-jpg_tt6&cstp=mx395x395&ctp=s395x395&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=ThcKqP8oPtgQ7kNvwFD-q-&_nc_oc=Adq3OPzpAnaP5CZJfI8xx9Zl4sZRcHXmGrHepqtJGeS4_ocNECj0OlOneZc894rtmsE&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=9teIX1J2DM1kOz2HkRXv9g&_nc_ss=7b2a8&oh=00_AQMzrIaJF9Q5XeEpYy1hf-pKnYN9CUzGkibiJApWm-UqGQ&oe=6AE588A3",
+  roboace: "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/862828061_122139487335344440_8554886301787335913_n.jpg?stp=dst-jpg_tt6&cstp=mx448x450&ctp=s448x450&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=bpLZ3_t58gQQ7kNvwEx8Jyl&_nc_oc=Adoqrre6X9xlAPIlNM0p_mb29xm2fLLCTBbt3RdTsYRax_rhNSKriBrPhMWxDhixK2s&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=mXRXI5k5tj9-4aLB0S9VAQ&_nc_ss=7b2a8&oh=00_AQMgH2D09gx0OL7VJrHjNIOYprBnbLUGKgBkaTdiMpWwmA&oe=6AE58348",
+  astroace: "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/865390891_122100482457523493_60362545972221743_n.jpg?stp=dst-jpg_tt6&cstp=mx1049x1049&ctp=s1049x1049&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Bi67FtgN_y4Q7kNvwFNCKqD&_nc_oc=AdqqhGYhisq3br2rSSHaPHcZDdfbslMirQGthBV4TWAn0V01Kllas0_rZTs01oKVoIw&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=hEZKD6DjVUcBSB1PwSDZ8Q&_nc_ss=7b2a8&oh=00_AQMhal6jkjUcJpd0loYmd2N6bacnrkERJY7edt_G1C37eQ&oe=6AE5905F",
+  "ace-canvas": "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/866566934_122099347557524426_6356138267251516550_n.jpg?stp=dst-jpg_tt6&cstp=mx454x454&ctp=s454x454&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=rh1m1JCi2pMQ7kNvwHXwOKM&_nc_oc=AdqU4yHcFOLBlt5qRVd2iQsWnYSKY4RbKDMiShl1pBGAwq8aAtPKkUcc49ncE3mSWqQ&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=DiI47ln-sErZESb3UZW63w&_nc_ss=7b2a8&oh=00_AQOscaxNJZstk0lVpzpeuMFxvHQPr0aaHOiXdDz4F9Q7ww&oe=6AE5990C",
+};
 
 export function DepartmentCard({ department }: { department: Department }) {
   return (
     <article className={"department-card department-card-" + department.slug} style={{ "--dept": department.color } as CSSProperties}>
       <div className="card-top">
-        <span className="department-icon" aria-hidden="true"><DepartmentMark slug={department.slug} /></span>
+        <span className="department-icon">
+          <img
+            className={"department-mark department-mark-" + department.slug}
+            src={departmentLogos[department.slug]}
+            alt={department.name + " logo"}
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
         <span className="card-code">ACE / {department.number}</span>
       </div>
       <h3>{department.name}</h3>
