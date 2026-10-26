@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const logoUrl = "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/719109484_122105159949349698_8842327329302787829_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1024&ctp=s1024x1024&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=GSlSNzZR_TgQ7kNvwEjyrim&_nc_oc=AdrNxY_ECUML9VzK3x2YUDhOCbMfyCUq4UL909SF3AdIGufcQq9zECcTlRXziRCJR64&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=eZdWn3g0TaYo00nmdnGoMA&_nc_ss=7b2a8&oh=00_AQN0h-gyxqCpgs95JSR9YqYi_vg8NJQv5D-prKrvXB80QQ&oe=6AE286C7";
+const logoUrl = "https://scontent.fjsr13-1.fna.fbcdn.net/v/t39.30808-6/719109484_122105159949349698_8842327329302787829_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1024&ctp=s1024x1024&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=0cYP_8SHQa8Q7kNvwFtb-2c&_nc_oc=AdovEZt00dCi9j-PtG3KyjpuvWV0zxuZsKbAtVeKPOYefrqIvTwqotLLY8Pd5trxS4w&_nc_zt=23&_nc_ht=scontent.fjsr13-1.fna&_nc_gid=WcnGfCmzKlD-Y1vYfN0hxw&_nc_ss=7b2a8&oh=00_AQMQnEcnuK8zhbOU6K1AEMKlU9Yw1vpoFfYwCkDjDZIAgw&oe=6AE59A47";
 
 export function Brand({ footer = false }: { footer?: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
