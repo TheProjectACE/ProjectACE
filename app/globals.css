@@ -203,3 +203,6 @@ a:hover .brand-mark{transform:translateY(-1px);border-color:rgba(85,230,242,.85)
 @media(prefers-reduced-motion:reduce){
   .department-icon:after,.department-mark-aeroace,.department-mark-aquaace,.department-mark-landace,.department-mark-roboace,.department-mark-astroace,.department-mark-ace-canvas{animation:none!important}
 }
+
+/* Keep the supplied department logo artwork fully visible inside the animated badge. */
+.department-mark{object-fit:contain;border-radius:7px}
