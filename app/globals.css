@@ -180,3 +180,26 @@ a:hover .brand-mark{transform:translateY(-1px);border-color:rgba(85,230,242,.85)
   .section-head,.page-intro,.panel,.department-card,.project-card,.info-card,.tool-card,.hero:before{animation:none!important}
   .button:after{display:none}
 }
+
+
+/* Each department has its own animated identity mark */
+.department-icon{position:relative;overflow:hidden;isolation:isolate}
+.department-icon:after{content:"";position:absolute;inset:-50%;z-index:-1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--dept) 23%,transparent),transparent 68%);opacity:.7;animation:dept-aura 5s ease-in-out infinite alternate}
+.department-mark{width:29px;height:29px;overflow:visible;transform-origin:center;transition:filter .25s ease}
+.department-card:hover .department-mark{filter:drop-shadow(0 0 5px color-mix(in srgb,var(--dept) 60%,transparent))}
+.department-mark-aeroace{animation:dept-glide 4s ease-in-out infinite}
+.department-mark-aquaace{animation:dept-wave 3.2s ease-in-out infinite}
+.department-mark-landace{animation:dept-grow 4.2s ease-in-out infinite}
+.department-mark-roboace{animation:dept-robot 3.5s ease-in-out infinite}
+.department-mark-astroace{animation:dept-orbit 8s linear infinite}
+.department-mark-ace-canvas{animation:dept-sketch 4s ease-in-out infinite}
+@keyframes dept-aura{from{transform:scale(.72);opacity:.35}to{transform:scale(1.12);opacity:.9}}
+@keyframes dept-glide{0%,100%{transform:translate(0,1px) rotate(-3deg)}50%{transform:translate(1px,-2px) rotate(3deg)}}
+@keyframes dept-wave{0%,100%{transform:translateY(1px) scaleX(.96)}50%{transform:translateY(-1px) scaleX(1.04)}}
+@keyframes dept-grow{0%,100%{transform:rotate(-4deg) scale(.96)}50%{transform:rotate(3deg) scale(1.04)}}
+@keyframes dept-robot{0%,100%{transform:translateY(0)}20%{transform:translateY(-1px)}25%{transform:translateY(-1px) rotate(3deg)}30%{transform:translateY(0) rotate(0)}}
+@keyframes dept-orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes dept-sketch{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(4deg) translateY(-1px)}}
+@media(prefers-reduced-motion:reduce){
+  .department-icon:after,.department-mark-aeroace,.department-mark-aquaace,.department-mark-landace,.department-mark-roboace,.department-mark-astroace,.department-mark-ace-canvas{animation:none!important}
+}
