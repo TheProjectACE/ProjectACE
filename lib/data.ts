@@ -137,6 +137,44 @@ export const projects: Project[] = [
     updated: "2026-08-30",
   },
   {
+    slug: "chomolokko-efd",
+    title: "CHOMOLOKKO — EFD Speed-Flight Concept",
+    departmentSlug: "aeroace",
+    departmentName: "AeroACE",
+    summary: "A proposed AeroACE mission exploring the ambition of creating an exceptionally fast RC aircraft, beginning with research, simulation, and a clearly defined EFD target.",
+    topic: "RC aircraft · EFD concept",
+    status: "Proposed",
+    isDemo: false,
+    question: "What measurable performance target, aircraft configuration, and validation process would be needed to evaluate the CHOMOLOKKO mission responsibly?",
+    objectives: [
+      "Define what EFD means for this mission and set a measurable, verifiable speed target",
+      "Review published RC aircraft performance data and the trade-offs between speed, stability, control, and reliability",
+      "Create a documented concept brief with assumptions, simulation plans, and a staged review process",
+      "Establish safety, legal, site, and supervision requirements before any physical testing"
+    ],
+    methodology: [
+      "Write a mission brief defining CHOMOLOKKO, the intended aircraft class, the meaning of EFD, and how speed would be measured",
+      "Compare credible published references and document their sources, test conditions, and uncertainties",
+      "Use educational modelling to explore high-level aerodynamic and performance trade-offs before selecting a concept",
+      "Have the concept and risk controls reviewed by an experienced RC aviation mentor; any future flight tests must use an appropriate approved site, comply with local rules, and be supervised by a qualified adult"
+    ],
+    materials: [
+      "Mission brief and performance-target worksheet",
+      "Published RC aircraft performance references",
+      "Concept sketches or CAD model, when available",
+      "Simulation notes and a test-measurement plan"
+    ],
+    limitations: [
+      "This is an idea-stage mission, not a completed aircraft or verified speed record",
+      "The phrase “fastest RC plane ever” is an ambition, not a confirmed or guaranteed outcome",
+      "EFD has not yet been defined; confirm its intended meaning before locking the mission specification",
+      "No aircraft design, flight result, speed measurement, or safety approval is claimed",
+      "High-speed RC aircraft can seriously injure people and damage property; do not conduct unsupervised tests or fly near people, roads, buildings, or public areas"
+    ],
+    sources: [],
+    updated: "2026-10-28",
+  },
+  {
     slug: "water-sampling-workflow",
     title: "Water sampling workflow (example concept)",
     departmentSlug: "aquaace",
