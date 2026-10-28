@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { MotionEffects } from "@/components/MotionEffects";
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <body>
         <a className="skip-link" href="#main">Skip to content</a>
         <SiteHeader />
+        <MotionEffects />
         <main id="main">{children}</main>
         <SiteFooter />
       </body>
