@@ -176,3 +176,70 @@ button{cursor:pointer}
 @keyframes dept-orbit{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes dept-sketch{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(4deg) translateY(-1px)}}
 @media(prefers-reduced-motion:reduce){.department-icon:after,.department-mark-aeroace,.department-mark-aquaace,.department-mark-landace,.department-mark-roboace,.department-mark-astroace,.department-mark-ace-canvas{animation:none!important}}
+
+
+/* ProjectACE futuristic visual refresh */
+:root{
+  --bg:#050b16;
+  --panel:#0a1526;
+  --line:rgba(125,190,226,.18);
+  --text:#edf7ff;
+  --muted:#a6bbcf;
+  --quiet:#7992aa;
+  --cyan:#64f0ff;
+  --blue:#6d91ff;
+  --violet:#b18cff;
+}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:
+    radial-gradient(ellipse at 15% 0%,rgba(36,116,180,.14),transparent 38rem),
+    radial-gradient(ellipse at 90% 28%,rgba(108,74,198,.10),transparent 34rem),
+    #050b16;
+}
+::selection{background:rgba(100,240,255,.28);color:#fff}
+.nav{backdrop-filter:blur(20px);background:rgba(5,11,22,.78);border-bottom-color:rgba(130,194,230,.14)}
+.brand-mark{box-shadow:0 0 24px rgba(100,240,255,.15)}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(115deg,rgba(7,18,35,.94),rgba(5,11,22,.72) 60%,rgba(19,22,52,.6))}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(110,191,229,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(110,191,229,.12) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
+.hero:after{content:"";position:absolute;z-index:-1;width:34rem;height:34rem;border-radius:50%;right:10%;top:0;background:rgba(35,177,220,.08);filter:blur(80px);animation:ambient-breathe 9s ease-in-out infinite alternate}
+.hero h1{letter-spacing:-.065em;text-wrap:balance}
+.accent{background:linear-gradient(100deg,#77f2ff 0%,#83baff 48%,#c3a3ff 100%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none}
+.eyebrow{letter-spacing:.17em;text-transform:uppercase;color:#81eaf5}
+.button{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s,background .25s}
+.button:hover{transform:translateY(-3px)}
+.button-primary{box-shadow:0 0 0 1px rgba(100,240,255,.16),0 8px 30px rgba(35,183,219,.12)}
+.button-primary:hover{box-shadow:0 0 0 1px rgba(100,240,255,.42),0 12px 38px rgba(35,183,219,.24)}
+.hero-art{filter:drop-shadow(0 12px 44px rgba(41,163,222,.12))}
+.orbit-svg{overflow:visible;animation:art-float 7s ease-in-out infinite}
+.orbit-spin{transform-origin:250px 250px;animation:orbit-turn 38s linear infinite}
+.department-card,.project-card,.panel,.info-card{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(145deg,rgba(14,31,51,.9),rgba(8,19,34,.88));border-color:rgba(132,190,225,.17);transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.department-card:before,.project-card:before,.panel:before,.info-card:before{content:"";position:absolute;z-index:-1;inset:0;opacity:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(100,240,255,.10),transparent 55%);transition:opacity .3s}
+.department-card:hover,.project-card:hover,.info-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--dept,var(--cyan)) 48%,transparent);box-shadow:0 20px 54px rgba(0,0,0,.22),0 0 28px rgba(57,191,223,.055)}
+.department-card:hover:before,.project-card:hover:before,.panel:hover:before,.info-card:hover:before{opacity:1}
+.department-card h3,.project-card h3{letter-spacing:-.025em}
+.card-link{transition:color .2s,gap .2s}
+.card-link:hover{gap:10px;color:#9df7ff}
+.section-head h2{letter-spacing:-.045em;text-wrap:balance}
+.status-dot{box-shadow:0 0 0 5px rgba(112,239,183,.08),0 0 16px rgba(112,239,183,.5)}
+.hero-caption{border:1px solid rgba(124,212,242,.2);background:rgba(5,13,26,.68);backdrop-filter:blur(16px);box-shadow:0 12px 38px rgba(0,0,0,.18)}
+.frontier-showcase{position:relative;overflow:hidden;border-block:1px solid rgba(124,194,230,.12);background:linear-gradient(180deg,rgba(8,19,34,.92),rgba(5,11,22,.98))}
+.frontier-showcase:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(65,146,215,.11),transparent 55%)}
+.frontier-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
+.frontier-feature{min-height:390px}
+.frontier-side{display:grid;grid-template-rows:1fr 1fr;gap:16px}
+.frontier-image-card{position:relative;min-height:180px;overflow:hidden;border:1px solid rgba(139,196,230,.2);border-radius:20px;background:#0a1728;isolation:isolate}
+.frontier-image-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s;filter:saturate(.82) brightness(.72)}
+.frontier-image-card:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(3,9,18,.94),rgba(3,9,18,.05) 78%),linear-gradient(120deg,rgba(13,100,148,.2),transparent 55%)}
+.frontier-image-card:hover img{transform:scale(1.055);filter:saturate(1.05) brightness(.86)}
+.frontier-image-copy{position:absolute;left:22px;right:22px;bottom:20px}
+.frontier-image-copy .kicker{color:#8ff1ff;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
+.frontier-image-copy h3{margin:7px 0 4px;font:600 clamp(1.2rem,2vw,1.8rem) var(--display);letter-spacing:-.035em}
+.frontier-image-copy p{max-width:52ch;margin:0;color:#c1d1e0;font-size:.86rem}
+.frontier-feature .frontier-image-copy h3{font-size:clamp(1.8rem,3.3vw,2.8rem)}
+.image-credit{margin-top:13px;color:var(--quiet);font-size:.75rem}
+.image-credit a{color:#9cebf4;text-underline-offset:3px}
+@keyframes ambient-breathe{from{transform:translate3d(-12px,0,0) scale(.88);opacity:.55}to{transform:translate3d(22px,20px,0) scale(1.08);opacity:1}}
+@keyframes art-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(max-width:760px){.frontier-grid{grid-template-columns:1fr}.frontier-feature{min-height:320px}.frontier-side{grid-template-rows:repeat(2,minmax(190px,1fr))}.frontier-image-copy{left:17px;right:17px;bottom:17px}.hero:before{background-size:38px 38px}}
+@media(prefers-reduced-motion:reduce){.hero:after,.orbit-svg,.orbit-spin{animation:none!important}.department-card,.project-card,.panel,.info-card,.frontier-image-card img,.button{transition:none!important}}

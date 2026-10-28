@@ -53,6 +53,46 @@ export default function HomePage() {
           <div style={{ marginTop: 24 }}><Link className="button button-secondary" href="/departments">Explore all departments <Arrow /></Link></div>
         </div>
       </section>
+
+      <section className="section frontier-showcase">
+        <div className="wrap">
+          <div className="section-head">
+            <p className="eyebrow">Ideas, made visible</p>
+            <h2>Build beyond the expected.</h2>
+            <p>From orbital mechanics to intelligent machines, explore the real-world frontiers that inspire ProjectACE.</p>
+          </div>
+          <div className="frontier-grid">
+            <article className="frontier-image-card frontier-feature">
+              <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1500&q=85" alt="Earth viewed from orbit with clouds and blue atmosphere" loading="lazy" decoding="async" />
+              <div className="frontier-image-copy">
+                <span className="kicker">01 / Space systems</span>
+                <h3>Think in new orbits.</h3>
+                <p>Ask bigger questions about our planet, spaceflight, and the systems that connect them.</p>
+              </div>
+            </article>
+            <div className="frontier-side">
+              <article className="frontier-image-card">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1000&q=85" alt="Modern robotics hardware representing automation and engineering" loading="lazy" decoding="async" />
+                <div className="frontier-image-copy">
+                  <span className="kicker">02 / Robotics</span>
+                  <h3>Make intelligence tangible.</h3>
+                  <p>Prototype, test, learn, and improve.</p>
+                </div>
+              </article>
+              <article className="frontier-image-card">
+                <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=1000&q=85" alt="Rocket standing upright on a launch pad" loading="lazy" decoding="async" />
+                <div className="frontier-image-copy">
+                  <span className="kicker">03 / Flight research</span>
+                  <h3>Turn curiosity into lift.</h3>
+                  <p>Explore aerodynamics, measurement, and responsible design.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <p className="image-credit">Visual inspiration: <a href="https://unsplash.com/" target="_blank" rel="noreferrer">Unsplash</a>. Images load from their image CDN.</p>
+        </div>
+      </section>
+
       <section className="section" style={{ borderBlock: "1px solid var(--line)", background: "#091625" }}>
         <div className="wrap">
           <div className="section-head"><p className="eyebrow">Workbench</p><h2>See the questions taking shape.</h2><p>Browse documented project records, proposed explorations, and work in progress. Demo content is clearly labelled.</p></div>
