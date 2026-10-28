@@ -243,3 +243,35 @@ body{
 @keyframes art-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @media(max-width:760px){.frontier-grid{grid-template-columns:1fr}.frontier-feature{min-height:320px}.frontier-side{grid-template-rows:repeat(2,minmax(190px,1fr))}.frontier-image-copy{left:17px;right:17px;bottom:17px}.hero:before{background-size:38px 38px}}
 @media(prefers-reduced-motion:reduce){.hero:after,.orbit-svg,.orbit-spin{animation:none!important}.department-card,.project-card,.panel,.info-card,.frontier-image-card img,.button{transition:none!important}}
+
+
+/* Earth–Moon orbit hero animation */
+.earth-moon-scene{position:relative;width:min(100%,480px);aspect-ratio:1;isolation:isolate;overflow:hidden;border-radius:50%;background:radial-gradient(circle at 50% 47%,rgba(19,78,119,.2),rgba(5,14,27,.08) 48%,transparent 72%);animation:rise-in .8s .1s both}
+.earth-moon-scene:before{content:"";position:absolute;inset:8%;border:1px solid rgba(91,183,232,.08);border-radius:50%;box-shadow:0 0 70px rgba(24,133,205,.08),inset 0 0 55px rgba(24,133,205,.05)}
+.space-stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,#d9f8ff 1px,transparent 1.6px),radial-gradient(circle,rgba(99,174,255,.8) 1px,transparent 1.6px);background-size:53px 61px,79px 83px;background-position:8px 12px,31px 24px;opacity:.5}
+.stars-two{transform:rotate(24deg) scale(1.12);opacity:.23}
+.orbit-track,.moon-orbit{position:absolute;left:50%;top:50%;width:77%;aspect-ratio:1;border:1px solid rgba(112,207,244,.28);border-radius:50%;transform:translate(-50%,-50%)}
+.orbit-track:after{content:"";position:absolute;inset:8%;border:1px dashed rgba(112,207,244,.12);border-radius:50%}
+.earth-globe{position:absolute;left:50%;top:50%;width:42%;aspect-ratio:1;overflow:hidden;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse at 29% 26%,#8be9ff 0,#2588c9 16%,#1260a5 39%,#092b62 73%,#04132e 100%);box-shadow:inset -19px -9px 24px rgba(0,4,22,.8),inset 7px 4px 15px rgba(158,237,255,.62),0 0 25px rgba(47,172,255,.34),0 0 75px rgba(31,143,225,.18)}
+.earth-globe:before{content:"";position:absolute;inset:-5%;border-radius:50%;background:repeating-linear-gradient(90deg,transparent 0 19%,rgba(2,20,49,.35) 20% 21%,transparent 22% 39%),linear-gradient(0deg,rgba(3,17,42,.58),transparent 42%,rgba(120,225,255,.18));animation:earth-surface 18s linear infinite}
+.earth-globe:after{content:"";position:absolute;inset:-2%;border:1px solid rgba(134,228,255,.55);border-radius:50%;box-shadow:inset 0 0 10px rgba(139,237,255,.26)}
+.earth-land{position:absolute;z-index:1;display:block;background:linear-gradient(135deg,#83dfad,#2e9d83 65%,#147a7b);filter:drop-shadow(0 0 2px rgba(104,245,194,.22))}
+.land-one{left:23%;top:19%;width:25%;height:33%;border-radius:62% 34% 48% 31%;transform:rotate(28deg);clip-path:polygon(18% 0,80% 8%,100% 34%,70% 49%,78% 75%,45% 100%,30% 70%,0 48%)}
+.land-two{left:48%;top:42%;width:20%;height:36%;border-radius:43% 50% 58% 32%;transform:rotate(-19deg);clip-path:polygon(20% 0,82% 9%,100% 39%,67% 60%,53% 100%,25% 83%,0 43%)}
+.land-three{left:66%;top:17%;width:16%;height:15%;border-radius:55% 38% 61% 40%;transform:rotate(16deg)}
+.earth-cloud{position:absolute;z-index:2;height:3px;border-radius:50%;background:rgba(218,249,255,.62);filter:blur(1px);transform:rotate(-28deg)}
+.cloud-one{left:15%;top:38%;width:29%}
+.cloud-two{left:48%;top:65%;width:24%}
+.moon-orbit{border-color:transparent;animation:moon-revolution 12s linear infinite;will-change:transform}
+.moon{position:absolute;left:50%;top:-4.8%;width:11%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 31% 27%,#f5fbff 0,#b8c8d8 28%,#778ba4 62%,#34465f 100%);box-shadow:inset -5px -3px 8px rgba(4,12,28,.55),0 0 18px rgba(174,220,255,.23);transform:translateX(-50%)}
+.moon span{position:absolute;left:25%;top:26%;width:18%;aspect-ratio:1;border-radius:50%;background:rgba(54,72,95,.27);box-shadow:10px 12px 0 -2px rgba(54,72,95,.22),-3px 19px 0 -4px rgba(54,72,95,.22)}
+.orbit-tag{position:absolute;display:flex;align-items:center;gap:8px;color:#c9e8f6;font:700 .65rem var(--display);letter-spacing:.14em}
+.orbit-tag i{font-style:normal;color:var(--cyan);font-size:.6rem}
+.earth-tag{left:5%;top:29%}
+.moon-tag{right:5%;top:23%}
+.orbit-readout{position:absolute;left:50%;bottom:12%;display:flex;flex-direction:column;gap:3px;transform:translateX(-50%);color:#a6bfd4;font:600 .62rem var(--display);letter-spacing:.16em;white-space:nowrap}
+.orbit-readout b{color:#73e8c1;font-size:.55rem;font-weight:600;letter-spacing:.1em;text-align:center}
+@keyframes moon-revolution{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes earth-surface{from{background-position:0 0,0 0}to{background-position:100px 0,0 0}}
+@media(max-width:760px){.earth-moon-scene{width:min(100%,390px)}.orbit-tag{font-size:.57rem}.earth-tag{left:1%}.moon-tag{right:1%}.orbit-readout{bottom:9%}}
+@media(prefers-reduced-motion:reduce){.earth-moon-scene,.earth-globe:before,.moon-orbit{animation:none!important}}
