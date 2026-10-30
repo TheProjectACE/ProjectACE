@@ -13,10 +13,20 @@ export const metadata: Metadata = {
   description:
     "A student-led science, engineering, research, and creative technology initiative exploring the natural world and developing affordable ideas.",
   metadataBase: new URL("https://projectacebd.vercel.app"),
+  icons: {
+    icon: "/projectace-logo.png",
+    shortcut: "/projectace-logo.png",
+    apple: "/projectace-logo.png",
+  },
   openGraph: {
     title: "ProjectACE — Curiosity into Creation",
     description: "Explore science, build useful ideas, and share the learning.",
     type: "website",
+    images: [{ url: "/projectace-logo.png", alt: "ProjectACE official logo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/projectace-logo.png"],
   },
 };
 
